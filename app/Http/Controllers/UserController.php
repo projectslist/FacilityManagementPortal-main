@@ -19,7 +19,20 @@ class UserController extends Controller
         //
         $user=Auth::user();
         return User::where('email',$user->email)->get();
-        
+
+    }
+
+    public function getUserToken(){
+        $user=Auth::user();
+
+        \DB::table('personal_access_tokens')
+            ->where('personal_access_tokens.tokenable_id',$user->id)
+            ->delete();
+
+        $token = $user->createToken('appToken')->plainTextToken;
+
+        return $token;
+
     }
 
     /**
@@ -83,7 +96,7 @@ class UserController extends Controller
             'password' => 'sometimes|min:6'
         ]);
 
-        
+
 
         $currentPhoto = $user->profile_image;
 
@@ -96,10 +109,10 @@ class UserController extends Controller
             $userPhoto = public_path('img/').$currentPhoto;
             if($currentPhoto != 'default_profile.png'){
                 if(file_exists($userPhoto)){
-                
+
                     @unlink($userPhoto);
                 }
-                
+
             }
 
         }
@@ -111,7 +124,7 @@ class UserController extends Controller
 
         $user->update($request->all());
 
-       
+
         $message= ["message" => "Your profile has been updated!"];
         return request()->json(200,$message);
 

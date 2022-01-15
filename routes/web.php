@@ -35,7 +35,7 @@ Route::group(['middleware' => CheckStatus::class], function()
 
     Route::resource('jobs', '\App\Http\Controllers\JobController');
     Route::resource('properties', '\App\Http\Controllers\PropertyController');
-
+    Route::get('getUserToken','\App\Http\Controllers\UserController@getUserToken');
 
 });
 

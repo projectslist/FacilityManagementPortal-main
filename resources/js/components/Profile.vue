@@ -36,6 +36,14 @@
             <has-error :form="form" field="email"></has-error>
           </div>
         </div>
+
+          <div class="form-group row">
+              <label for="token" class="col-sm-2 col-form-label">API Token</label>
+              <div class="col-sm-8">
+                  <label for="">{{ this.userToken }}</label>
+              </div>
+          </div>
+
         <div class="form-group row">
           <label for="inputPassword3" class="col-sm-2 col-form-label"
             >Password</label
@@ -95,6 +103,7 @@
 export default {
   data() {
     return {
+      userToken: "",
       form: new Form({
         id: "",
         name: "",
@@ -105,12 +114,18 @@ export default {
     };
   },
   methods: {
+
+      getUserToken() {
+          axios.get("getUserToken").then((data) => {
+              this.userToken = data.data;
+          });
+      },
     getProfilePhoto() {
       let photo =
         this.form.profile_image.length > 200
           ? this.form.profile_image
           : 'img/'+this.form.profile_image;
-        
+
       return photo;
     },
     updateProfile(e) {
@@ -159,6 +174,7 @@ export default {
   },
   created() {
     this.profileDetails();
+    this.getUserToken();
   },
   mounted() {
     console.log("Component mounted.");

@@ -50,7 +50,7 @@ class JobController extends Controller
     public function getActiveUser()
     {
         $user = Auth::user();
-        return 2;
+//        return 2;
         return $user->id;
     }
 

@@ -15,7 +15,7 @@ Vue.use(VueRouter)
 
 
 import Home from './components/Home.vue';
-
+import Welcome from './components/EndUserPages/Welcome.vue';
 
 
 //added for vform
@@ -109,6 +109,12 @@ const router = new VueRouter({
 const home = new Vue({
     el: '#home',
     render: h => h(Home),
+    router,
+});
+
+const welcome = new Vue({
+    el: '#welcome',
+    render: h => h(Welcome),
     router,
 });
 
