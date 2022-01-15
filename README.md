@@ -2,6 +2,9 @@
 
 Laravel,Bootstrap and Vuejs have been used in the project.
 Laravel Sanctum REST API has been used in this project.
+You can register,login, and logout to platform by using REST API or website's related pages.
+Website homepage fetching data from REST API. Details in api.php
+Admin panel is fecthing data normal. Details in web.php 
 
 Please follow below steps after cloning the project from github!
 
