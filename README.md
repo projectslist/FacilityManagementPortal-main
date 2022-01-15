@@ -1,6 +1,7 @@
 ## About Project
 
 Laravel,Bootstrap and Vuejs have been used in the project.
+Laravel Sanctum REST API has been used in this project.
 
 Please follow below steps after cloning the project from github!
 

@@ -3,7 +3,7 @@
     <main>
         <footer class="main-footer">
             <nav class="navbar fixed-bottom navbar-ligth" style="background-color: #eaeaea;">
-                
+
                 <div class="float-right d-none d-sm-inline">
                     Enjoy it!
                 </div>
