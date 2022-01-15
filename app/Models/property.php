@@ -9,6 +9,8 @@ class property extends Model
 {
     use HasFactory;
 
+    protected $fillable =['property_name'];
+
 
     public function job(){
         return $this->belongsTo('App\Models\Job');

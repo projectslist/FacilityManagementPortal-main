@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Job;
+use App\Models\property;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -50,38 +51,65 @@ class JobController extends Controller
     public function getActiveUser()
     {
         $user = Auth::user();
-//        return 2;
+
         return $user->id;
     }
 
     public function store(Request $request)
     {
-        //
-
+        //  I had to change store method
+        // because of user can send data from api as 'property' for 'property_id'
+        // I have separated tables at the begging because I have added rest api after it.
 
         if ($request['status'] == '') {
             $request['status'] = 'open';
         }
+
+        $main_property_id="";
+
+        if($request['property']){
+
+            //Check whether property exist or not
+
+            $propery_checking = property::where('property_name',$request['property'])->count();
+
+            if($propery_checking != 0 ){
+                $propery_id = property::where('property_name',$request['property'])->get('id');
+                    $main_property_id = $propery_id[0]->id;
+
+            }else{
+               $new_property= property::create(
+                ['property_name' => $request['property'],]);
+                $main_property_id =$new_property['id'];
+            }
+
+        }else{
+            $main_property_id = $request['property_id'];
+        }
+
+
         $request['user_id'] = $this->getActiveUser();
         $this->validate($request, [
             'summary' => 'required|string|max:150',
             'description' => 'required|string|max:500',
-            'property_id' => 'required|numeric',
             'status' => 'required|string',
             'user_id' => 'required|numeric',
 
         ]);
 
-
+        if(is_numeric($main_property_id)){
         $result = Job::create([
             'summary' => $request['summary'],
             'description' => $request['description'],
-            'property_id' => $request['property_id'],
+            'property_id' => $main_property_id,
             'status' => $request['status'],
             'user_id' => $this->getActiveUser(),
         ]);
+            return response($result, 201);
+        }
 
-        return response($result, 201);
+
+
     }
 
     /**
