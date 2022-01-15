@@ -26,6 +26,7 @@ Please follow below steps after cloning the project from github!
 
 1. Run docker-compose -f docker_compose.yml build
 2. Run docker-compose -f docker_compose.yml up -d
+3. Migrate database from CLI
 
 If you want to down your docker, please run below command
 

@@ -50,6 +50,7 @@ class JobController extends Controller
     public function getActiveUser()
     {
         $user = Auth::user();
+        return 2;
         return $user->id;
     }
 
@@ -89,9 +90,10 @@ class JobController extends Controller
      * @param \App\Models\Job $job
      * @return \Illuminate\Http\Response
      */
-    public function show(Job $job)
+    public function show($id)
     {
         //
+        return Job::find($id);
     }
 
     /**
@@ -135,10 +137,10 @@ class JobController extends Controller
      * @param \App\Models\Job $job
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Job $job)
+    public function destroy($id)
     {
         //
-
+        $job = Job::findorFail($id);
         return $job->delete();
     }
 }
