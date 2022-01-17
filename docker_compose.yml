@@ -4,7 +4,7 @@ services:
   php:
     build:
       context: .
-      dockerfile: ./docker_compose.yml
+      dockerfile: docker/Dockerfile
     image: jobvacdockerimage
     ports:
       - 8095:80
