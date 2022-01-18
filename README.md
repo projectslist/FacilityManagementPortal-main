@@ -2,13 +2,13 @@
 
 Laravel,Bootstrap and Vuejs have been used in the project.
 Laravel Sanctum REST API has been used in this project.
-You can register,login, and logout to platform by using REST API or website's related pages.
-Website homepage fetching data from REST API. Details in api.php
-Admin panel is fecthing data normal. Details in web.php 
+You can register,login, and logout to the platform by using REST API or website's related pages.
+The website's homepage fetching data from REST API. Details in api.php
+Admin panel is fetching data normal. Details in web.php 
 
 Please follow below steps after cloning the project from github!
 
-1. Run `git clone 'link projet github'
+1. Run `git clone 'link project github'
 2. Run composer install
 3 -Run npm install
 3. Run cp .env.example .env or copy .env.example .env
