@@ -88,6 +88,8 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //
+
+
         $user = auth()->user();
 
         $this->validate($request,[
