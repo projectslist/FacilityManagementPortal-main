@@ -31,7 +31,7 @@
         "flat-icons": "^1.0.0",
         "laravel-vue-pagination": "^2.3.1",
         "sweetalert2": "^11.1.2",
-        "vform": "^2.1.1",
+        "vform": "^2.1.2",
         "vue-progressbar": "^0.7.5",
         "vue-router": "^3.5.2"
     }
