@@ -26,7 +26,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.3",
-        "admin-lte": "^3.0.0-alpha.2",
+        "admin-lte": "^3.0.0",
         "bootstrap-vue": "^2.21.2",
         "flat-icons": "^1.0.0",
         "laravel-vue-pagination": "^2.3.1",
